@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.4.1)
 
+if (WIN32)
+  add_definitions( "-D_GLIBCXX_USE_NANOSLEEP=1" )
+  add_definitions( "-DWIN32_LEAN_AND_MEAN" )
+endif()
+
 #SET(CMAKE_C_COMPILER /path/to/c/compiler)
 #SET(CMAKE_CXX_COMPILER /path/to/cpp/compiler)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -std=c++14 -F/Library/Frameworks -pthread")
@@ -100,8 +105,11 @@ endif()
 ######################
 # monero-cpp
 ######################
-
-add_library(monero-cpp SHARED IMPORTED)
+if (WIN32)
+  add_library(monero-cpp STATIC IMPORTED)
+else()
+  add_library(monero-cpp SHARED IMPORTED)
+endif()
 
 # import shared c++ library
 if (APPLE)

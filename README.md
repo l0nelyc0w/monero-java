@@ -149,6 +149,28 @@ If you want to process binary data or use a client-side wallet instead of RPC, s
 8. Run TestMoneroUtils.java JUnit tests to verify the shared libraries are working with Java JNI.
 9. Add the shared libraries within ./build/ to your application's classpath.
 
+
+## Building JNI shared libraries from source for Windows
+1. Install Maven
+a. Download Binary Zip archive from https://maven.apache.org/download.cgi
+b. Unpack to C:\msys64\usr\local
+2. Install Java
+a. Download Windows x64 msi from https://learn.microsoft.com/en-us/java/openjdk/download
+b. Install to C:\msys64\usr\local
+3. Open open MSYS2 MINGW64 Shell
+`export JAVA_HOME=/usr/local/jdk-17.x.x.x-hotspot/`<br>
+`export MAVEN_HOME=/usr/local/apache-maven-3.x.x/`<br>
+`export PATH=$PATH:$JAVA_HOME/bin/:$MAVEN_HOME/bin/`<br>
+
+2. Clone the project repository: `git clone https://github.com/monero-ecosystem/monero-java.git`
+3. `cd ./monero-java`
+3. Install Maven dependencies: `mvn install`
+4. Update submodules: `./bin/update_submodules.sh`
+5. [Build ./external/monero-cpp as a shared library. Follow instructions for Windows](https://github.com/monero-ecosystem/monero-cpp#using-this-library-in-your-project)
+7. Build shared libraries to ./build/: `./bin/build_libmonero_java.sh`
+8. Run TestMoneroUtils.java JUnit tests to verify the shared libraries are working with Java JNI.
+9. Add the shared libraries within ./build/ to your application's classpath.
+
 ## Running JUnit tests
 
 1. Clone the project repository: `git clone https://github.com/monero-ecosystem/monero-java.git`
