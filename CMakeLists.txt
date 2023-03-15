@@ -106,7 +106,7 @@ endif()
 # monero-cpp
 ######################
 if (WIN32)
-  add_library(monero-cpp STATIC IMPORTED)
+  add_library(monero-cpp STATIC IMPORTED) # For Windows to import a SHARED library, in addition to IMPORTED_LOCATION that points to the .dll, IMPORTED_IMPLIB must also be supplied and point to a .lib, however when libmonero-cpp.dll is built no correspinding .lib is generated.
 else()
   add_library(monero-cpp SHARED IMPORTED)
 endif()

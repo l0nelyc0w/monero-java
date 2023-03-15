@@ -156,7 +156,7 @@ a. Download Binary Zip archive from https://maven.apache.org/download.cgi
 b. Unpack to C:\msys64\usr\local
 2. Install Java
 a. Download Windows x64 msi from https://learn.microsoft.com/en-us/java/openjdk/download
-b. Install to C:\msys64\usr\local
+b. Install to C:\msys64\usr\local\jdk-17.x.x.x-hotspot\
 3. Open open MSYS2 MINGW64 Shell
 `export JAVA_HOME=/usr/local/jdk-17.x.x.x-hotspot/`<br>
 `export MAVEN_HOME=/usr/local/apache-maven-3.x.x/`<br>
